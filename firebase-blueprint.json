@@ -1,0 +1,58 @@
+{
+  "entities": {
+    "Portfolio": {
+      "title": "Portfolio",
+      "description": "공사 현장 포트폴리오 데이터",
+      "type": "object",
+      "properties": {
+        "title": { "type": "string", "description": "공사명" },
+        "description": { "type": "string", "description": "공사 상세 내용" },
+        "category": { "type": "string", "description": "공사 분류 (CCTV, 네트워크, 정보통신 등)" },
+        "imageUrl": { "type": "string", "description": "현장 사진 URL" },
+        "createdAt": { "type": "string", "format": "date-time", "description": "등록일" }
+      },
+      "required": ["title", "category", "imageUrl", "createdAt"]
+    },
+    "Notice": {
+      "title": "Notice",
+      "description": "최신 공지사항 및 뉴스",
+      "type": "object",
+      "properties": {
+        "title": { "type": "string", "description": "제목" },
+        "content": { "type": "string", "description": "내용 (Markdown 지원)" },
+        "createdAt": { "type": "string", "format": "date-time", "description": "작성일" }
+      },
+      "required": ["title", "content", "createdAt"]
+    },
+    "Inquiry": {
+      "title": "Inquiry",
+      "description": "고객 견적 문의 데이터",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string", "description": "고객명/업체명" },
+        "contact": { "type": "string", "description": "연락처" },
+        "content": { "type": "string", "description": "문의 내용" },
+        "attachmentUrl": { "type": "string", "description": "첨부파일 URL (선택)" },
+        "createdAt": { "type": "string", "format": "date-time", "description": "문의일" }
+      },
+      "required": ["name", "contact", "content", "createdAt"]
+    },
+    "Settings": {
+      "title": "Settings",
+      "description": "사이트 전역 설정",
+      "type": "object",
+      "properties": {
+        "siteTitle": { "type": "string" },
+        "primaryColor": { "type": "string" },
+        "footerInfo": { "type": "object" },
+        "socialLinks": { "type": "object" }
+      }
+    }
+  },
+  "firestore": {
+    "portfolios": { "schema": "Portfolio", "description": "포트폴리오 컬렉션" },
+    "notices": { "schema": "Notice", "description": "공지사항 컬렉션" },
+    "inquiries": { "schema": "Inquiry", "description": "견적 문의 컬렉션" },
+    "settings": { "schema": "Settings", "description": "사이트 설정 문서" }
+  }
+}
